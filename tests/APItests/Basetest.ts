@@ -1,9 +1,10 @@
 import { APIRequestContext,APIRequest,expect} from "@playwright/test";
 
+//
 const baseURL="https://practice.expandtesting.com/notes/api";
 let authToken=null;
 
-async function GetAccessToken(email1: string, password: string,request1:APIRequestContext):Promise <string>
+export async function GetAccessToken(email1: string, password: string,request1:APIRequestContext):Promise <string>
 
 {
 const loginresponsedata =await request1.post(baseURL+"/users/login",{
@@ -30,4 +31,5 @@ console.log(responseobj.message);
 return(authToken);
 
 }
-export{GetAccessToken};
+
+//export{GetAccessToken};

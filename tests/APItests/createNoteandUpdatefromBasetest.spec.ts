@@ -34,7 +34,8 @@ test("create Note TC", async({request})=>{
 });
 
 //parse response text into json object
-const responsebody =JSON.parse(await (CreateNoteresponseobj).text());
+//const responsebody =JSON.parse(await (CreateNoteresponseobj).text());
+    const responsebody= await CreateNoteresponseobj.json();
 
 
 //verify status code and response
@@ -50,7 +51,7 @@ console.log("Note created-" + Notetitle);
 expect(responsebody.data.description).toBe("Note1 created from script");
 
 //display id
-const getid=responsebody.data.id;
+const getid=(await responsebody).data.id;
 console.log("ID of created note -" + getid);
 });
 
